@@ -1,0 +1,73 @@
+.grid {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.grid-item {
+  margin-top: 17px;
+  width: 222px;
+  min-height: 218px;
+  margin-right: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+}
+
+.grid-item .help {
+  height: 15px;
+  padding: 0 6px;
+  margin-bottom: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.grid-item img {
+  width: 222px;
+  height: 125px;
+}
+
+.file-upload {
+  margin: 0 5px;
+  display: block;
+  text-align: center;
+}
+
+.file-upload .button {
+  padding: 10px 15px;
+  display: block;
+}
+
+.file-upload input[type=file] {
+  display: none;
+}
+
+.file-delete {
+  margin: 0 5px;
+  padding: 5px 0;
+  display: block;
+}
+
+.file-empty {
+  height: 125px;
+  margin-bottom: 6px;
+}
+
+.file-empty h1 {
+  padding-top: 60px;
+  text-align: center;
+}
+
+.file-choose {
+  margin: 0 5px;
+}
+
+.selector-available > select {
+  border-top-width: 0;
+}

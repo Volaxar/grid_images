@@ -1,0 +1,48 @@
+{% load i18n %}
+
+<div class="js-inline-admin-formset inline-group" id="{{ inline_admin_formset.formset.prefix }}-group"
+     data-inline-type="tabular"
+     data-inline-formset="{{ inline_admin_formset.inline_formset_data }}">
+
+  <div class="tabular inline-related {% if forloop.last %}last-related{% endif %}">
+    {{ inline_admin_formset.formset.management_form }}
+
+    <fieldset class="module {{ inline_admin_formset.classes }}">
+      <h2>{{ inline_admin_formset.opts.verbose_name_plural|capfirst }}</h2>
+      {{ inline_admin_formset.formset.non_form_errors }}
+
+      <div class="grid" data-button-change="Изменить" data-img-ready="Фото готово к загрузке">
+        {% for inline_admin_form in inline_admin_formset %}
+
+          <div class="grid-item {% if forloop.last %} empty-form{% endif %}">
+            {% spaceless %}
+              {% if inline_admin_form.needs_explicit_pk_field %}{{ inline_admin_form.pk_field.field }}{% endif %}
+              {{ inline_admin_form.fk_field.field }}
+
+              {% for fieldset in inline_admin_form %}
+                {% for line in fieldset %}
+                  {% for field in line %}
+                    {{ field.field }}
+                  {% endfor %}
+                {% endfor %}
+              {% endfor %}
+
+              {% if inline_admin_formset.formset.can_delete %}
+                {% if inline_admin_form.original %}
+                  <label class="file-delete">
+                    {{ inline_admin_form.deletion_field.field }}
+                    {% trans "Delete?" %}
+                  </label>
+                {% endif %}
+              {% endif %}
+            {% endspaceless %}
+
+
+          </div>
+
+        {% endfor %}
+      </div>
+
+    </fieldset>
+  </div>
+</div>
