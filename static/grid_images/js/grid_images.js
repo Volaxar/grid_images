@@ -13,22 +13,20 @@
         }
     };
 
-    $.fn.addGridItem = function () {
-        var options = $(this).data('inline-formset').options;
+    var addGridItem = function (el) {
+        var prefix = el.data('inline-prefix');
 
-        var totalForms = $('#id_' + options.prefix + '-TOTAL_FORMS').prop('autocomplete', 'off');
-        var maxForms = $('#id_' + options.prefix + '-MAX_NUM_FORMS').prop('autocomplete', 'off');
+        var totalForms = $('#id_' + prefix + '-TOTAL_FORMS');
+        var maxForms = $('#id_' + prefix + '-MAX_NUM_FORMS');
 
         if (maxForms.val() === '' || (maxForms.val() - totalForms.val()) > 0) {
-            // var nextIndex = parseInt(totalForms.val(), 10);
-
-            var template = $('.grid-item.empty-form');
+            var template = el.find('.gi-grid-item.empty-form');
             var item = template.clone(true);
 
             item.removeClass('empty-form');
 
             item.find("*").each(function () {
-                updateElementIndex(this, options.prefix, totalForms.val());
+                updateElementIndex(this, prefix, totalForms.val());
             });
 
             item.insertBefore($(template));
@@ -38,16 +36,18 @@
     };
 
     var fileChanged = function () {
-        var $grid = $('.grid');
-        var $parent = $(this).parents('.grid-item');
+
+        var $gridItem = $(this).parents('.gi-grid-item');
+        var $formset = $gridItem.parents('.gi-formset');
+        var labels = $formset.data('inline-labels');
 
         if ('files' in this && this.files[0]) {
-            $parent.find('.help').text(this.files[0].name);
-            $parent.find('.button').text($grid.data('button-change'));
-            $parent.find('.file-empty > :header').text($grid.data('img-ready'));
+            $gridItem.find('.help').text(this.files[0].name);
+            $gridItem.find('.button').text(labels.textButtonChange);
+            $gridItem.find('.file-empty > :header').text(labels.textImgReady);
         }
 
-        $parent.parents('.js-inline-admin-formset').addGridItem()
+        addGridItem($formset)
     };
 
     $(function () {

@@ -1,4 +1,4 @@
-.grid {
+.gi-grid {
   display: -webkit-box;
   display: -moz-box;
   display: -ms-flexbox;
@@ -10,7 +10,7 @@
   flex-wrap: wrap;
 }
 
-.grid-item {
+.gi-grid-item {
   margin-top: 17px;
   width: 222px;
   min-height: 218px;
@@ -19,7 +19,7 @@
   border-radius: 4px;
 }
 
-.grid-item .help {
+.gi-grid-item .help {
   height: 15px;
   padding: 0 6px;
   margin-bottom: 0;
@@ -28,46 +28,46 @@
   overflow: hidden;
 }
 
-.grid-item img {
+.gi-grid-item img {
   width: 222px;
   height: 125px;
 }
 
-.file-upload {
+.gi-grid .file-upload {
   margin: 0 5px;
   display: block;
   text-align: center;
 }
 
-.file-upload .button {
+.gi-grid .button {
   padding: 10px 15px;
   display: block;
 }
 
-.file-upload input[type=file] {
+.gi-grid input[type=file] {
   display: none;
 }
 
-.file-delete {
+.gi-grid .file-delete {
   margin: 0 5px;
   padding: 5px 0;
   display: block;
 }
 
-.file-empty {
+.gi-grid .file-empty {
   height: 125px;
   margin-bottom: 6px;
 }
 
-.file-empty h1 {
+.gi-grid .file-empty h1 {
   padding-top: 60px;
   text-align: center;
 }
 
-.file-choose {
+.gi-grid .file-choose {
   margin: 0 5px;
 }
 
-.selector-available > select {
+.gi-grid .selector-available > select {
   border-top-width: 0;
 }
