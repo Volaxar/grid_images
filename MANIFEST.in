@@ -1,0 +1,5 @@
+include LICENSE
+include README.rst
+recursive-include grid_images/static *
+recursive-include grid_images/templates *
+recursive-include docs *
